@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Наш Новороссийск</string>
+    <string name="map_api_key" translatable="false">AIzaSyBh5zFwTWHBRkbZdAyncmG8XUw3tOwftzU</string>
+</resources>

@@ -1,0 +1,114 @@
+{
+  "project_info": {
+    "project_number": "154644017654",
+    "firebase_url": "https://tabula-4369f.firebaseio.com",
+    "project_id": "tabula-4369f",
+    "storage_bucket": "tabula-4369f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154644017654:android:2c528da4f03370fe6ed7d7",
+        "android_client_info": {
+          "package_name": "com.example.tabula"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154644017654-vjgpis13h4eluc1u4fuoopjo56r9osr7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tabula",
+            "certificate_hash": "a06efaf5e664ab8ecca1db1b32b46976fe48b978"
+          }
+        },
+        {
+          "client_id": "154644017654-0tdlmh1qt8uipad7s98o47k6t1egvr8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCskkQPZdGSkzi5O75pxjeW3wHW_BOdYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154644017654-0tdlmh1qt8uipad7s98o47k6t1egvr8e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154644017654:android:8cb5e9cb43f3baf46ed7d7",
+        "android_client_info": {
+          "package_name": "com.lapsus.nvrskprob"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154644017654-qecn3jn9eqfh82dfj5bgu4h64rbi4rr7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lapsus.nvrskprob",
+            "certificate_hash": "a06efaf5e664ab8ecca1db1b32b46976fe48b978"
+          }
+        },
+        {
+          "client_id": "154644017654-0tdlmh1qt8uipad7s98o47k6t1egvr8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCskkQPZdGSkzi5O75pxjeW3wHW_BOdYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154644017654-0tdlmh1qt8uipad7s98o47k6t1egvr8e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154644017654:android:0169ec5611c3a4fc6ed7d7",
+        "android_client_info": {
+          "package_name": "com.nvrskapp.ournovorossiysk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154644017654-0tdlmh1qt8uipad7s98o47k6t1egvr8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCskkQPZdGSkzi5O75pxjeW3wHW_BOdYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154644017654-0tdlmh1qt8uipad7s98o47k6t1egvr8e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

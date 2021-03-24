@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/newsFragment">
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.nvrskapp.ournovorossiysk.ui.news.NewsFragment"
+        android:label="Новости"
+        tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/appealsFragment"
+        android:name="com.nvrskapp.ournovorossiysk.appeals.AppealsFragment"
+        android:label="Обращения"
+        tools:layout="@layout/fragment_appeals" >
+        <action
+            android:id="@+id/action_appealsFragment_to_apealsFormFragment"
+            app:destination="@id/apealsFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/apealsFormFragment"
+        android:name="com.nvrskapp.ournovorossiysk.appeals.ApealsFormFragment"
+        android:label="Новое обращение" >
+        <action
+            android:id="@+id/action_apealsFormFragment_to_appealsFragment"
+            app:destination="@id/appealsFragment" />
+    </fragment>
+</navigation>
