@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="MyApp.Dark" parent="Theme.MaterialComponents"></style>
+    <style name="MyApp.Dark" parent="Theme.MaterialComponents">
+        <item name="colorPrimary">@color/secondaryColor</item>
+        <item name="colorPrimaryDark">@color/secondaryDarkColor</item>
+
+    </style>
+
+    <style name="MyTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="colorPrimary">@color/secondaryColor</item>
+    </style>
+
 </resources>

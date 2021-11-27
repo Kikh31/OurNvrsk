@@ -3,9 +3,12 @@ package com.nvrskapp.ournovorossiysk.appeals
 import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -15,15 +18,16 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.nvrskapp.ournovorossiysk.Problem
 import com.nvrskapp.ournovorossiysk.R
 import com.nvrskapp.ournovorossiysk.databinding.FragmentAppealsBinding
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.apeal_info_window.*
+import kotlinx.android.synthetic.main.apeal_info_window.view.*
 import kotlinx.android.synthetic.main.fragment_appeals.*
 import java.io.IOException
 
@@ -31,7 +35,7 @@ import java.io.IOException
 class AppealsFragment : Fragment() {
 
     private lateinit var googleMap: GoogleMap
-    private lateinit var firebase: Firebase
+    private lateinit var firebase: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
 
 
@@ -47,8 +51,7 @@ class AppealsFragment : Fragment() {
             container,
             false
         ).apply {
-            val firebase = Firebase.database
-            databaseReference = firebase.getReference("problems")
+            databaseReference = Firebase.database.getReference("problems")
         }
         return binding.root
     }
@@ -75,8 +78,13 @@ class AppealsFragment : Fragment() {
                                 if (coords.size > 0) {
                                     var pin: LatLng =
                                         LatLng(coords.get(0).latitude, coords.get(0).longitude)
-                                    p0?.addMarker(MarkerOptions().position(pin).title(problem?.description))
 
+                                    p0?.addMarker(
+                                        MarkerOptions()
+                                            .position(pin)
+                                            .title(problem?.title)
+                                            .snippet(problem?.description)
+                                    )?.tag = problem?.image + ";" + problem?.address
                                 }
                             } catch (e: IOException) {
                                 e.printStackTrace()
@@ -88,6 +96,18 @@ class AppealsFragment : Fragment() {
 
                     }
                 })
+                p0?.setOnInfoWindowClickListener {
+                    val tagString = it.tag.toString().split(';')
+                    val view = LayoutInflater.from(context)
+                        .inflate(R.layout.apeal_info_window, null, false)
+                    MaterialAlertDialogBuilder(context!!).apply {
+                        setView(view)
+                        view.title.setText(it.title)
+                        view.apealTextView.setText(it.snippet + "\n")
+                        view.address.setText(tagString[1])
+                        Picasso.get().load(tagString[0]).into(view.apeal_image)
+                    }.show()
+                }
             }
         })
         floating_action_button.setOnClickListener{

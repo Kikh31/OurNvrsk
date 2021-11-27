@@ -1,109 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <LinearLayout
-        android:id="@+id/problem_info_body"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Заголовок"
-            app:endIconMode="clear_text"
-            android:layout_marginBottom="8dp"
-            app:startIconDrawable="@drawable/ic_title_black_24dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/titleEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/problem_info_body"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/titleInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:layout_weight="1"
-                android:hint="Улица"
+                android:layout_marginBottom="16dp"
+                android:hint="Заголовок"
                 app:endIconMode="clear_text"
-                app:startIconDrawable="@drawable/ic_location_on_black_24dp">
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/ic_title_black_24dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/addresEditText"
+                    android:id="@+id/titleEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"/>
             </com.google.android.material.textfield.TextInputLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/addresInputLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:layout_weight="1"
+                    android:hint="Улица"
+                    app:endIconMode="clear_text"
+                    app:errorEnabled="true"
+                    app:startIconDrawable="@drawable/ic_location_on_black_24dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/addresEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/hmNumberInputLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Номер дома"
+                    app:endIconMode="clear_text"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/hmNumberEditTExt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/problemImageButton"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:onClick="dispatchTakePictureIntent"
+                android:text="Прикрепить фото проблемы"
+                android:textColorHighlight="@color/secondaryColor"
+                app:backgroundTint="@color/secondaryColor"
+                app:icon="@drawable/ic_add_a_photo_black_24dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/photoStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:text="Фото не добавленно"
+                android:textColor="@color/secondaryDarkColor"
+                android:textSize="19dp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="240dp"
+                android:id="@+id/descriptionInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Номер дома"
-                app:endIconMode="clear_text">
+                android:layout_marginBottom="16dp"
+                android:hint="Описание пробемы"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:startIconDrawable="@drawable/ic_subject_black_24dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/hmNumberEditTExt"
+                    android:id="@+id/descriptionEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/problemButton"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="saveProblem"
+                android:text="Добавить"
+                android:textColorHighlight="@color/secondaryDarkColor"
+                app:backgroundTint="@color/secondaryColor" />
 
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/problemImageButton"
-            style="@style/Widget.MaterialComponents.Button.Icon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="-5dp"
-            android:onClick="dispatchTakePictureIntent"
-            android:text="Прикрепить фото проблемы"
-            android:textColorHighlight="@color/secondaryColor"
-            app:backgroundTint="@color/secondaryColor"
-            app:icon="@drawable/ic_add_a_photo_black_24dp" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/photoStatus"
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="15dp"
-            android:text="Фото не добавленно"
-            android:textColor="@color/secondaryDarkColor"
-            android:textSize="19dp" />
+            app:indicatorColor="@color/secondaryColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:indeterminate="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Описание пробемы"
-            app:endIconMode="clear_text"
-            app:startIconDrawable="@drawable/ic_subject_black_24dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/descriptionEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/problemButton"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="saveProblem"
-            android:text="Добавить"
-            android:textColorHighlight="@color/secondaryDarkColor"
-            app:backgroundTint="@color/secondaryColor" />
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
