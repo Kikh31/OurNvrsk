@@ -62,7 +62,6 @@ class AppealsFragment : Fragment() {
         val map = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         map.getMapAsync(object : OnMapReadyCallback {
             override fun onMapReady(p0: GoogleMap?) {
-                //TODO("Not yet implemented")
                 val nvrs: LatLng = LatLng(44.715224, 37.762172)
                 p0?.moveCamera(CameraUpdateFactory.newLatLngZoom(nvrs, 9f))
 
@@ -98,8 +97,10 @@ class AppealsFragment : Fragment() {
                 })
                 p0?.setOnInfoWindowClickListener {
                     val tagString = it.tag.toString().split(';')
+
                     val view = LayoutInflater.from(context)
                         .inflate(R.layout.apeal_info_window, null, false)
+
                     MaterialAlertDialogBuilder(context!!).apply {
                         setView(view)
                         view.title.setText(it.title)
